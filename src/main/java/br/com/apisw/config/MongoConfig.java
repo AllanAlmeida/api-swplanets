@@ -15,7 +15,7 @@ public class MongoConfig {
 
     @Autowired 
     Environment env;
-
+    
     public @Bean MongoTemplate mongoTemplate() throws Exception {
     	return 	new MongoTemplate(new MongoClient(env.getProperty("mongo.host")), env.getProperty("mongo.dbname"));
 	}
