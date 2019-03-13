@@ -1,8 +1,11 @@
 # api-swplanets
 Api to get info and some CRUD about Star Wars planet.
 
-Enter gate when run in developer environment:
+Try this when run in developer environment:
 http://localhost:8080
+
+and this for online sample:
+http://immense-hollows-91987.herokuapp.com/
 
 Result:
 SW-API Endpoints
