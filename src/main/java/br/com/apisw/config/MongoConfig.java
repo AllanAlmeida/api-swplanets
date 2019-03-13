@@ -8,15 +8,18 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 
 @Configuration
 @PropertySource({ "classpath:mongodb-data-source.properties" })
 public class MongoConfig {
 
-    @Autowired 
+    @Autowired
     Environment env;
     
     public @Bean MongoTemplate mongoTemplate() throws Exception {
-    	return 	new MongoTemplate(new MongoClient(env.getProperty("mongo.host")), env.getProperty("mongo.dbname"));
-	}
+    	
+    	MongoClient mongoClient = new MongoClient(new MongoClientURI(env.getProperty("mongo.uri")));
+    	return 	new MongoTemplate(mongoClient, env.getProperty("mongo.dbname"));
+    }
 }
